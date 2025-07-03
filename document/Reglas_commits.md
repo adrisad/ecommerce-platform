@@ -22,6 +22,7 @@ El `scope` indica qué parte del proyecto se ve afectada. manejaremos lo siguien
 - `document`
 
 ## ✅ Ejemplos de commits válidos
+```bash
 refactor(backend): extract user logic to separate module
 refactor(frontend): simplify product component structure
 refactor(document): reorganize folder structure for clarity
