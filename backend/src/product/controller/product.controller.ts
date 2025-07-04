@@ -19,9 +19,12 @@ export class ProductController {
   async create(@Body() body: any) {
     try {
       const id = await this.productService.createProduct(body);
-      return { id, message: 'Product created successfully' };
+      return { id, message: 'Producto creado correctamente' };
     } catch (error) {
-      throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
+      throw new HttpException(
+        'Error al crear el producto',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
 
@@ -35,7 +38,7 @@ export class ProductController {
     try {
       return await this.productService.getProductById(id);
     } catch (error) {
-      throw new HttpException('Product not found', HttpStatus.NOT_FOUND);
+      throw new HttpException('Producto no encontrado', HttpStatus.NOT_FOUND);
     }
   }
 
@@ -43,7 +46,7 @@ export class ProductController {
   async update(@Param('id') id: string, @Body() body: any) {
     try {
       await this.productService.updateProduct(id, body);
-      return { message: 'Product updated successfully' };
+      return { message: 'Producto actualizado correctamente' };
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -53,7 +56,7 @@ export class ProductController {
   async remove(@Param('id') id: string) {
     try {
       await this.productService.deleteProduct(id);
-      return { message: 'Product deleted successfully' };
+      return { message: 'Producto eliminado correctamente' };
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
