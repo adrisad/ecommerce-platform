@@ -1,0 +1,23 @@
+<div class="p-6 h-screen" style="background-color: #D7D7D7;">
+  <h2 class="text-2xl font-bold mb-4 text-center" style="color: #273F4F;">Nuestros Productos</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div
+      *ngFor="let product of products"
+      class="bg-white shadow-md rounded-2xl p-4 hover:shadow-lg transition duration-300 border border-gray-300"
+    >
+      <img
+        [src]="product.image"
+        [alt]="product.name"
+        class="w-full h-40 object-cover rounded-xl mb-4"
+      />
+      <h3 class="text-lg font-semibold" style="color: #273F4F;">{{ product.name }}</h3>
+      <p style="color: #447D9B;" class="font-medium">${{ product.price }}</p>
+      <button
+        class="mt-4 text-white px-4 py-2 rounded-xl w-full transition"
+        style="background-color: #FE7743;"
+      >
+        Agregar al carrito
+      </button>
+    </div>
+  </div>
+</div>
